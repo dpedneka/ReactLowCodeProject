@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.demo-space-x >*{
+  margin-top: 1rem !important;
+  margin-right: 1rem !important;
+}
+.demo-space-y > *:not(:last-of-type){
+  margin-bottom: 1rem;
+}
+.css-3i3m50-MuiGrid-root {
+  width: 100% !important; 
+}
+.css-3i3m50-MuiGrid-root>.MuiGrid-item {
+  padding-left: 10px !important;
+  padding-top: 0px !important;
+  padding-bottom: 30px !important;
+  padding-right: 10px !important;
+  display: flex !important;
+}
+.css-3i3m50-MuiGrid-root>.MuiGrid-item>div,
+.react-datepicker__input-container>.MuiTextField-root {
+  display: flex !important;
+  flex :1;
+  text-align: left;
+}
+
+/* calender */
+

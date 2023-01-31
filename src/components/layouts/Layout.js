@@ -1,0 +1,40 @@
+import React, { useEffect, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { getFormData } from "src/redux/slice/Form4/form4-slice"
+import VerticalLayout from "./wrappers/VerticalLayout"
+
+const Layout = (props) => {
+
+    // ** Props
+    const { hidden, children, settings, saveSettings } = props
+  
+    // ** Ref
+    const isCollapsed = useRef(settings.navCollapsed)
+
+    useEffect(() => {
+        if (hidden) {
+          if (settings.navCollapsed) {
+            saveSettings({ ...settings, navCollapsed: false, layout: 'vertical' })
+            isCollapsed.current = true
+          }
+        } else {
+          if (isCollapsed.current) {
+            saveSettings({ ...settings, navCollapsed: true, layout: settings.lastLayout })
+            isCollapsed.current = false
+          } else {
+            if (settings.lastLayout !== settings.layout) {
+              saveSettings({ ...settings, layout: settings.lastLayout })
+            }
+          }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hidden])
+
+    return (
+        <>
+            <VerticalLayout {...props} />
+        </>
+    )
+}
+
+export default Layout
