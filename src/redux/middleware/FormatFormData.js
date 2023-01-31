@@ -43,7 +43,7 @@ export const formatStorableValues = ({event, data}) => {
             })
 
         } else {
-            let a = event.target[item.dbFieldName] !== undefined ? event.target[item.dbFieldName].value : ""
+            let a = event.target[item.dbFieldName] !== undefined ? event.target[item.dbFieldName].value : "" 
     
             apiData += separator + item.dbFieldName + "=" + a;
         }
