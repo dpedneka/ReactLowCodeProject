@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Box, Checkbox, FormControl, Grid, InputLabel, ListItemText, MenuItem, Select } from "@mui/material"
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 // const ITEM_HEIGHT = 48
 // const ITEM_PADDING_TOP = 8
@@ -29,7 +30,7 @@ const MultiSelectDropdown = ({ item }) => {
         <Grid item xs={12} sm={6}>
             <Box sx={{ display: 'flex', alignItems:'center', flexDirection: 'column'}}>
                 <FormControl fullWidth>
-                    <InputLabel id='demo-multiple-checkbox-label'>{item.label}</InputLabel>
+                    <InputLabel id='demo-multiple-checkbox-label'>{toTitleCase(item.label)}</InputLabel>
                     <Select
                         multiple
                         label='Tag'

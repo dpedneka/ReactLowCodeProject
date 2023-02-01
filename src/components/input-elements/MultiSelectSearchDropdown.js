@@ -3,6 +3,7 @@ import { Autocomplete, Grid, TextField } from "@mui/material"
 import { Box } from "@mui/material"
 import { top100Films } from "src/data/multiselect"
 import HiddenElement from "./HiddenElement"
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 const MultiSelectSearchDropdown = ({ item }) => {
 
@@ -44,7 +45,7 @@ const MultiSelectSearchDropdown = ({ item }) => {
                     getOptionLabel={option => option.label}
                     sx={{ display: 'flex', flex : 1 }}
                     renderInput={
-                        params => <TextField {...params} label={item.label} placeholder={item.label} />
+                        params => <TextField {...params} label={toTitleCase(item.label)} placeholder={item.label} />
                     }
                 />
             </Box>

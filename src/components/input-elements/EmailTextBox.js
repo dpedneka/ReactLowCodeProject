@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Grid, TextField } from "@mui/material"
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 const EmailTextBox = ({ item }) => {
 
@@ -13,7 +14,7 @@ const EmailTextBox = ({ item }) => {
 
     return (
         <Grid item xs={12} sm={6}>
-            <TextField type='email' {...item.attributes} value={value} onChange={onChangeHandler} label={item.label} placeholder='username@gmail.com'  />
+            <TextField type='email' {...item.attributes} value={value} onChange={onChangeHandler} label={toTitleCase(item.label)} placeholder='username@gmail.com'  />
         </Grid>
     )
 }

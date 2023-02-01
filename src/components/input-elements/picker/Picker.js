@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import DatePicker from 'react-datepicker'
 import PickersComponent from "./PickersComponent"
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 const Picker = ({ item }) => {
 
@@ -26,7 +27,7 @@ const Picker = ({ item }) => {
                         popperPlacement={popperPlacement}
                         onChange={date => setDate(date)}
                         placeholderText='Click to select a date'
-                        customInput={<PickersComponent label={item.label} />}
+                        customInput={<PickersComponent label={toTitleCase(item.label)} />}
                     />
                 </div>
             </DatePickerWrapper>

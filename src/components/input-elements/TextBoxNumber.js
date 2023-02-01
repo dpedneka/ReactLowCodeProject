@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Grid, TextField } from "@mui/material"
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 const TextBoxNumber = ({ item }) => {
     
@@ -13,7 +14,7 @@ const TextBoxNumber = ({ item }) => {
     
     return (
         <Grid item xs={12} sm={6}>
-            <TextField type='number' value={value} {...item.attributes} onChange={onChangeHandler} label={item.label} />
+            <TextField type='number' value={value} {...item.attributes} onChange={onChangeHandler} label={toTitleCase(item.label)} />
         </Grid>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material"
+import { toTitleCase } from "src/redux/middleware/FormatTableColumns"
 
 const DropdownSelect = ({item}) => {
 
@@ -16,7 +17,7 @@ const DropdownSelect = ({item}) => {
             <FormControl sx={{
                 minWidth : '6rem !important'
             }}>
-                <InputLabel id='demo-simple-select-outlined-label'>{item.label}</InputLabel>
+                <InputLabel id='demo-simple-select-outlined-label'>{toTitleCase(item.label)}</InputLabel>
                 <Select
                     label={item.label}
                     defaultValue=''

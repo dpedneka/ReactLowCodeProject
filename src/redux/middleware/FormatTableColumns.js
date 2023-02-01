@@ -52,15 +52,26 @@ export const formatTableRows = (trdata) => {
             [labelHeaders[6]] : item[labelHeaders[6]],
             [labelHeaders[7]] : item[labelHeaders[7]],
             [labelHeaders[8]] : item[labelHeaders[8]],
-            editableId : item[labelHeaders[0]]
+            editableId : item["ID"]
         })
     })
 
     return arrayOfRows
 }
 
-function camelize(str) {
+// ** Camel Case a string
+export function camelize(str) {
     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
       return index === 0 ? word.toLowerCase() : word.toUpperCase();
     }).replace(/\s+/g, '');
+}
+
+// ** Sentence Case a string
+export function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
 }

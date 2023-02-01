@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Checkbox, FormControlLabel, FormGroup, Grid, TextField } from '@mui/material'
+import { Checkbox, FormControlLabel, FormGroup, FormLabel, Grid, TextField } from '@mui/material'
+import { toTitleCase } from 'src/redux/middleware/FormatTableColumns'
 
 const CheckBox = ({ item }) => {
 
@@ -44,7 +45,7 @@ const CheckBox = ({ item }) => {
 
     return (
         <Grid item xs={12} sm={6}>
-            <FormGroup row>
+            <FormGroup column>
                 <TextField 
                     value={checkBoxInputValues}
                     type={"hidden"} 
@@ -53,6 +54,8 @@ const CheckBox = ({ item }) => {
                     }} 
                     {...item.attributes}
                 />
+                <FormLabel>{toTitleCase(item.label)}</FormLabel>
+                <FormGroup row>
                 {
                     checkBoxData.map(( cbItem, cbIndex ) => {
                         return (
@@ -70,6 +73,7 @@ const CheckBox = ({ item }) => {
                         )
                     })
                 }
+                </FormGroup>
             </FormGroup>
         </Grid>
     )
