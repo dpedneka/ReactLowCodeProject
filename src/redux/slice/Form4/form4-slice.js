@@ -45,7 +45,9 @@ const initialState = {
     formData : [],
     formValues :[],
     formListData :[],
-    isLoading : false
+    isLoading : false,
+    editableId : 0,
+    deletableId : 0
 }
 
 const formInputElementsSlice = createSlice({
@@ -54,6 +56,9 @@ const formInputElementsSlice = createSlice({
     reducers : {
         updateFormData(state, action) {
             // state.formValues.filter(x => x.dbFieldName === )
+        },
+        updateEditableId(state, action) {
+            state.editableId = action.payload.editableId
         }
     },
     extraReducers: builder => {
@@ -73,5 +78,7 @@ const formInputElementsSlice = createSlice({
         })
     }
 })
+
+export const formInputElementsActions = formInputElementsSlice.actions
 
 export default formInputElementsSlice

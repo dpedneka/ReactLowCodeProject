@@ -16,7 +16,6 @@ export const formatFormData = (data) => {
             displayOrder : element[7]
         })
     });
-    console.log(arrayOfForm)
     return arrayOfForm
 }
 

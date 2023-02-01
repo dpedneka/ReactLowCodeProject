@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material"
 import { useDispatch } from "react-redux"
-import { editFormData } from "src/redux/slice/Form4/form4-slice"
+import { editFormData, formInputElementsActions } from "src/redux/slice/Form4/form4-slice"
 
 const TableEditableColumns = ({indexId, index, column, editableId}) => {  
 
     const dispatch = useDispatch()
 
     const editHandler = () => {
+        dispatch(formInputElementsActions.updateEditableId({ editableId }))
         dispatch(editFormData(editableId))
     }
     const deleteHandler = () => {

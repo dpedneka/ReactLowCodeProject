@@ -72,6 +72,10 @@ const InputElements = props => {
     useEffect(() => {
         dispatch(getFormData())
     },[])
+    
+    useEffect(() => {
+        setEditableId(data.editableId)
+    }, [data])
 
     useEffect(() => {
         setInputElementsData(data.formData)
