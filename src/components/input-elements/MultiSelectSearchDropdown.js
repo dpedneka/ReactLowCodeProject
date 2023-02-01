@@ -11,6 +11,7 @@ const MultiSelectSearchDropdown = ({ item }) => {
     const [selectedIds, setSelectedIds] = useState([])
 
     const onChangeHandler = (event, newValue) => {
+        console.log(newValue)
         setSelectedItems(newValue)
         let Ids = []
         newValue.forEach(item => {
@@ -21,6 +22,13 @@ const MultiSelectSearchDropdown = ({ item }) => {
 
     useEffect(() => {
         // setSelectedItems(item.dbValue)
+        let selectedValues = []
+        item.inputValues.forEach((x) => {
+            if(item.dbValue.includes(x.Id))
+                selectedValues.push(x)
+        })
+        setSelectedItems(selectedValues)
+        setSelectedIds(item.dbValue)
     },[item.dbValue])
     
     return (
