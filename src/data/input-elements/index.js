@@ -50,5 +50,10 @@ export const InputTypes = [
     "checkboxDump" // ** 16
 ]
 
+// ** Derived from InputTypes ( To be edited later ) */
+export const acceptableArrayInputTypes = [
+    9, 10, 11, 16
+]
+
 //Array Types 
 // [9, 10, 11, 16]

@@ -1,4 +1,4 @@
-import { InputTypes } from "src/data/input-elements";
+import { acceptableArrayInputTypes, InputTypes } from "src/data/input-elements";
 
 export const formatFormData = (data) => {
     let arrayOfForm = []
@@ -33,10 +33,9 @@ export const formatFormValues = (data) => {
 export const formatStorableValues = ({event, data}) => {
     var apiData = "";
     var separator = "";
-    let arrayTypes = [9, 10, 11, 16]
     data.formData.forEach((item, index) => {
 
-        if(arrayTypes.includes(InputTypes.findIndex(x => x === item.type))) {
+        if(acceptableArrayInputTypes.includes(InputTypes.findIndex(x => x === item.type))) {
             let inputArrayData = event.target[item.dbFieldName].value.split(",")
             inputArrayData.forEach(inpArrayItem => {
                 apiData += separator + item.dbFieldName + "[]=" + inpArrayItem;
