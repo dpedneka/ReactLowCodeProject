@@ -30,7 +30,7 @@ export const formatFormValues = (data) => {
     return arrayOfForm
 }
 
-export const formatStorableValues = ({event, data}) => {
+export const formatStorableValues = ({event, data, editableId}) => {
     var apiData = "";
     var separator = "";
     data.formData.forEach((item, index) => {
@@ -50,6 +50,10 @@ export const formatStorableValues = ({event, data}) => {
         if(index !== (data.formValues.length - 1))
             separator = "&";
     })
+
+    if(editableId !== undefined) {
+        apiData += "&editID=" + editableId
+    }
 
     return apiData
 }

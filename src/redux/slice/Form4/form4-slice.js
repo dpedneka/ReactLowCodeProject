@@ -12,6 +12,7 @@ export const getFormData = createAsyncThunk('form4Data/getFormData', async (payl
     return response.data
 })
 
+// * Store Form Data
 export const storeFormData = createAsyncThunk('form4Data/storeFormData', async (payload, 
     { dispatch }) => {
     const storableData = await formatStorableValues(payload)
@@ -20,13 +21,21 @@ export const storeFormData = createAsyncThunk('form4Data/storeFormData', async (
     return response.data
 })
 
+// ** Get Editable Data To form
 export const editFormData = createAsyncThunk('form4Data/editFormData', async (payload) => {
     const response = await axios.get(editFormDataForInputElements + payload)
     return response.data
 })
 
-// ** Fetch Form List Data
+// ** Update Edited Data
+export const updateFormData = createAsyncThunk('form4Data/updateFormData', async (payload, { dispatch }) => {
+    const storableData = await formatStorableValues(payload)
+    const response = await axios.get(storeFormInputElements + storableData)
+    await dispatch(getFormData())
+    return response.data
+})
 
+// ** Fetch Form List Data
 export const fetchFormListData = createAsyncThunk('form4Data/fetchFormData', async (payload) => {
     const response = await axios.get(fetchFormDataRV)
     return response.data

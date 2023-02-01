@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField'
 import CheckBox from "./CheckBox"
 import TextBox from "./TextBox"
 import { useDispatch, useSelector } from "react-redux"
-import { getFormData, storeFormData } from "src/redux/slice/Form4/form4-slice"
+import { getFormData, storeFormData, updateFormData } from "src/redux/slice/Form4/form4-slice"
 import DropdownSelect from "./DropdownSelect"
 import HiddenElement from "./HiddenElement"
 import TextArea from "./TextArea"
@@ -67,6 +67,7 @@ const InputElements = props => {
     const data = useSelector(state => state.formInputElementReducer)
 
     const [inputElementsData, setInputElementsData] = useState([])
+    const [editableId, setEditableId] = useState(1)
 
     useEffect(() => {
         dispatch(getFormData())
@@ -78,9 +79,15 @@ const InputElements = props => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(storeFormData({
+        // dispatch(storeFormData({
+        //     event,
+        //     data
+        // }))
+
+        dispatch(updateFormData({
             event,
-            data
+            data,
+            editableId
         }))
     }
     return (
