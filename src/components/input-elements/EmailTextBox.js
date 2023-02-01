@@ -13,7 +13,7 @@ const EmailTextBox = ({ item }) => {
 
     return (
         <Grid item xs={12} sm={6}>
-            <TextField type='email' {...item.attributes} required={true} value={value} onChange={onChangeHandler} label={item.label} placeholder='username@gmail.com'  />
+            <TextField type='email' {...item.attributes} value={value} onChange={onChangeHandler} label={item.label} placeholder='username@gmail.com'  />
         </Grid>
     )
 }
