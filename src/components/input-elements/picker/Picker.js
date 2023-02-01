@@ -11,8 +11,8 @@ const Picker = ({ item }) => {
     const popperPlacement = 'bottom-end'
     
     useEffect(() => {
-        if(item.dbValue === 0 || item.dbValue.replaceAll(" ","") === "") {
-            setDate(item.dbValue === 0 || item.dbValue === "" ? new Date() : new Date(item.dbValue))
+        if(item.dbValue !== 0 && item.dbValue.replaceAll(" ","") !== "") {
+            setDate(new Date(item.dbValue))
         }
     },[item.dbValue])
 
